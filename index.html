@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Néné Bathily - Coaching Exécutif & Stratégie de Transformation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700&family=Brittany+Signature&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="logo.webp">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-medium: #E0E0E0;
+            --gray-dark: #333333;
+        }
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+
+        .signature {
+            font-family: 'Brittany Signature', cursive;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 49.5%, var(--gray-medium) 49.5%, var(--gray-medium) 50.5%, transparent 50.5%),
+                linear-gradient(0deg, transparent 49.5%, var(--gray-medium) 49.5%, var(--gray-medium) 50.5%, transparent 50.5%);
+            background-size: 60px 60px;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-name {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: var(--gray-dark);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background-color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--gray-light);
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .section-intro {
+            font-size: 1.3rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .deux-colonnes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .colonne {
+            padding: 40px;
+            background-color: var(--white);
+            border-left: 4px solid var(--black);
+        }
+
+        section:nth-child(even) .colonne {
+            background-color: var(--gray-light);
+        }
+
+        .colonne h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .colonne ul {
+            list-style: none;
+        }
+
+        .colonne li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-medium);
+            font-size: 1.15rem;
+            font-weight: 300;
+        }
+
+        .colonne li:last-child {
+            border-bottom: none;
+        }
+
+        .colonne li::before {
+            content: '—';
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        /* Section Image + Contenu - AMÉLIORÉ */
+        .image-content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .image-content-section.reverse {
+            direction: rtl;
+        }
+
+        .image-content-section.reverse > * {
+            direction: ltr;
+        }
+
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            border: 3px solid var(--black);
+        }
+
+        .content-box {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .content-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .approche-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .approche-item {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--white);
+            transition: transform 0.3s ease;
+            border: 2px solid var(--gray-medium);
+        }
+
+        .approche-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--black);
+        }
+
+        .approche-item h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .approche-item p {
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .offres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .offre-card {
+            background-color: var(--white);
+            padding: 50px 40px;
+            border: 2px solid var(--black);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .offre-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px 0 var(--black);
+        }
+
+        .offre-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .offre-card p {
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .offre-card .btn {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .offre-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .offre-features li {
+            padding: 12px 0;
+            font-weight: 400;
+            position: relative;
+            padding-left: 25px;
+            font-size: 1.05rem;
+        }
+
+        .offre-features li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .offre-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--gray-light);
+            text-align: center;
+        }
+
+        .offre-ideal {
+            font-style: italic;
+            color: var(--gray-dark);
+            margin-bottom: 30px;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+
+        .premium-message {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-left: 4px solid var(--black);
+            position: relative;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 1rem;
+            color: var(--gray-dark);
+            font-style: normal;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .about-content strong {
+            font-weight: 700;
+        }
+
+        .parcours-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .parcours-list li {
+            padding: 15px 0;
+            font-size: 1.15rem;
+            border-bottom: 1px solid var(--gray-medium);
+            font-weight: 300;
+        }
+
+        .parcours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .parcours-list li::before {
+            content: '—';
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: var(--white);
+            border-left: 4px solid var(--black);
+        }
+
+        .faq-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .faq-item p {
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .cta-final {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-dark) 100%);
+            color: var(--white);
+        }
+
+        .cta-final h2 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .cta-final p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--black);
+            border: 2px solid var(--white);
+        }
+
+        .btn-white:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        @media (max-width: 968px) {
+            .approche-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-content-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-content-section.reverse {
+                direction: ltr;
+            }
+
+            .image-box img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .deux-colonnes,
+            .offres-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .image-box img {
+                height: 300px;
+            }
+
+            .vision-background {
+                padding: 80px 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <p class="hero-subtitle">Coaching exécutif & stratégie de transformation</p>
+            <p class="hero-name">Par <span class="signature">Néné Bathily</span> — Coach certifiée & Consultante en stratégie</p>
+            
+            <h1>Dirigeant(e) ou manager :<br>quand tout repose sur vous...<br>et que l'organisation peine à suivre</h1>
+            
+            <div class="hero-tagline">
+                <p>Vous portez votre entreprise, vos équipes, vos décisions.<br>
+                Vous tenez bon, mais la charge devient lourde.</p>
+                <p style="margin-top: 20px;">Derrière la réussite, il y a la fatigue, la confusion, la solitude.</p>
+                <p style="margin-top: 30px; font-weight: 400;">J'accompagne les dirigeants et leurs organisations à <strong>retrouver clarté, sérénité et performance durable</strong>,<br>
+                en travaillant à la fois sur <strong>le leader</strong> et <strong>le système qu'il pilote</strong>.</p>
+            </div>
+            
+            <a href="diagnostic.html" class="btn">Réserver un Diagnostic Stratégique</a>
+        </div>
+    </section>
+
+    <!-- Section Désalignement -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Ce que vous vivez : le double désalignement</h2>
+            
+            <div class="deux-colonnes">
+                <div class="colonne">
+                    <h3>Côté dirigeant</h3>
+                    <ul>
+                        <li>Surcharge mentale et perte de recul</li>
+                        <li>Décisions solitaires et fatigue émotionnelle</li>
+                        <li>Doutes sur la direction à prendre</li>
+                        <li>Difficulté à déléguer ou à mobiliser durablement</li>
+                        <li>Sentiment d'avoir perdu le sens ou le souffle</li>
+                    </ul>
+                </div>
+                
+                <div class="colonne">
+                    <h3>Côté organisation</h3>
+                    <ul>
+                        <li>Croissance qui stagne malgré les efforts</li>
+                        <li>Manque de cohésion et tensions managériales</li>
+                        <li>Équipes fatiguées, démotivées ou désalignées</li>
+                        <li>Trop d'urgences, pas assez de vision</li>
+                        <li>Plans d'action sans réel ancrage humain</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p class="section-intro" style="margin-top: 60px; font-size: 1.4rem; font-weight: 400;">
+                Ce que vous ressentez n'est pas une faiblesse.<br>
+                C'est <strong>un signal d'alignement</strong>.<br>
+                Et c'est souvent le point de départ d'une transformation puissante.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Vision & Approche avec image -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Ma vision & mon approche</h2>
+            
+            <p class="section-intro">
+                Je crois qu'il n'y a pas de performance durable sans alignement intérieur.<br><br>
+                Derrière chaque tension stratégique, il y a une tension humaine.<br>
+                Derrière chaque blocage organisationnel, un déséquilibre de posture.
+            </p>
+            
+            <div class="image-content-section">
+                <div class="image-box">
+                    <img src="photo2.webp" alt="Leadership et stratégie">
+                </div>
+                <div class="content-box">
+                    <div style="display: flex; flex-direction: column; gap: 30px;">
+                        <div>
+                            <h3 style="font-size: 1.7rem; margin-bottom: 15px; font-weight: 700;">Apaiser</h3>
+                            <p>Créer un espace pour déposer la charge mentale et clarifier les émotions.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1.7rem; margin-bottom: 15px; font-weight: 700;">Éveiller</h3>
+                            <p>Comprendre les croyances et schémas qui freinent les décisions.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 1.7rem; margin-bottom: 15px; font-weight: 700;">Transformer</h3>
+                            <p>Aligner la posture du leader, la vision et la structure de l'organisation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="section-intro" style="margin-top: 60px; font-size: 1.3rem;">
+                C'est une démarche <strong>introspective et stratégique</strong> à la fois,<br>
+                qui relie l'<strong>être</strong> et le <strong>faire</strong>, pour une gouvernance plus lucide et fluide.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Offres -->
+    <section id="offres">
+        <div class="container">
+            <h2 class="section-title">Deux formats d'accompagnement</h2>
+            
+            <p class="section-intro">
+                Selon vos besoins, deux niveaux d'intervention sont possibles :<br>
+                un <strong>diagnostic stratégique</strong> pour comprendre,<br>
+                ou un <strong>accompagnement complet</strong> pour transformer.
+            </p>
+            
+            <div class="offres-grid">
+                <div class="offre-card">
+                    <h3>Diagnostic Stratégique Dirigeant</h3>
+                    <p>En 10 à 15 jours, obtenez une <strong>lecture claire et neutre</strong> de votre organisation et de votre posture de leader.</p>
+                    
+                    <ul class="offre-features">
+                        <li>Analyse croisée des 3 leviers : Stratégie — RH — Finances</li>
+                        <li>Identification des déséquilibres humains et structurels</li>
+                        <li>Feuille de route à 90 jours avec les 3 leviers prioritaires</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique</p>
+                    
+                    <div class="offre-price">
+                        À partir de 1 000 000 F CFA
+                    </div>
+                    
+                    <p class="offre-ideal">Idéal pour les dirigeants qui veulent voir clair avant d'agir.</p>
+                    
+                    <a href="diagnostic.html" class="btn">Réserver mon Diagnostic</a>
+                </div>
+                
+                <div class="offre-card">
+                    <h3>Accompagnement Dirigeant & Organisation Alignés</h3>
+                    <p>Un accompagnement complet sur plusieurs mois, pour réaligner votre posture intérieure, votre vision stratégique et la dynamique de votre organisation.</p>
+                    
+                    <ul class="offre-features">
+                        <li>Sortir de la surcharge mentale grâce à un coaching transformateur</li>
+                        <li>Reconnecter à votre vision et votre leadership</li>
+                        <li>Structurer une organisation plus fluide, sereine et performante</li>
+                        <li>Former et coacher vos managers</li>
+                    </ul>
+                    
+                    <div class="offre-price">
+                        Entre 3 500 000 F et 7 000 000 F CFA selon le périmètre
+                    </div>
+                    
+                    <p class="offre-ideal">Idéal pour les dirigeants et DG de PME en quête d'une transformation durable.</p>
+                    
+                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
+                </div>
+                
+                <div class="offre-card">
+                    <h3>Transformation Stratégique & Managériale</h3>
+                    <p>Une démarche complète pour les organisations en mutation.</p>
+                    
+                    <ul class="offre-features">
+                        <li>Élaboration du plan stratégique et commercial</li>
+                        <li>Structuration RH et renforcement du middle management</li>
+                        <li>Coaching collectif des managers et accompagnement du DG</li>
+                    </ul>
+                    
+                    <div class="offre-price">
+                        À partir de 5 000 000 F CFA
+                    </div>
+                    
+                    <p class="offre-ideal">Idéal pour les organisations souhaitant allier performance et alignement humain.</p>
+                    
+                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
+                </div>
+            </div>
+            
+            <div class="premium-message">
+                Je n'interviens pas pour "résoudre des problèmes".<br>
+                J'aide les dirigeants à créer un <strong>espace de clarté et de transformation durable</strong> —<br>
+                où l'humain, la stratégie et la performance se réconcilient.
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages avec image -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Les transformations vécues</h2>
+            
+            <p class="section-intro">
+                Mes clients ne changent pas d'entreprise.<br>
+                Ils changent leur manière d'être à la tête.<br><br>
+                Et tout change ensuite : leurs décisions, leur posture, leurs résultats.
+            </p>
+
+            <div class="image-content-section reverse" style="margin-bottom: 60px;">
+                <div class="image-box">
+                    <img src="photo3.webp" alt="Transformation organisationnelle">
+                </div>
+                <div class="content-box">
+                    <h3>Une approche qui transforme</h3>
+                    <p>Chaque accompagnement est conçu sur-mesure pour répondre aux enjeux spécifiques de votre organisation. De la clarification stratégique à l'alignement des équipes, je crée les conditions d'une transformation durable.</p>
+                    <p>Les résultats parlent d'eux-mêmes : dirigeants plus sereins, équipes plus engagées, organisations plus performantes.</p>
+                </div>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Je tiens à exprimer toute ma satisfaction quant à l'accompagnement stratégique et au coaching personnel que j'ai reçus en tant que Directrice. Néné a fait preuve d'un grand professionnalisme, tout en conservant une dimension profondément humaine et empathique, qui instaure naturellement un climat de confiance. Elle maîtrise parfaitement son sujet et démontre une grande expertise en stratégie d'entreprise. Sa méthodologie est à la fois structurée et engageante : elle embarque, motive et donne envie de s'investir pleinement. Ce qui m'a particulièrement marqué, c'est la fierté que l'on ressent à co-construire, à ses côtés, une stratégie claire, ambitieuse et réaliste, capable de propulser l'entreprise vers un nouveau cap."</p>
+                    <p class="testimonial-author">— DAF / DO PME</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Lorsque j'ai commencé mon accompagnement, je me sentais perdue, tiraillée dans mes choix de vie et j'avais même envie d'abandonner. Grâce à ce coaching, j'ai observé une nette amélioration dans ma vie. J'ai appris à mieux me connaître, à reconnaître mes limites, et cela a renforcé ma confiance en moi. J'ai beaucoup apprécié l'écoute attentive de Néné, et je me suis toujours sentie en confiance en discutant avec elle. Si je devais recommander cet accompagnement, je dirais d'y aller les yeux fermés, car elle sait trouver les mots justes pour guider chacun vers ses objectifs."</p>
+                    <p class="testimonial-author">— DG PME</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Nous avons observé des évolutions de manière notable dans le fonctionnement de l'entreprise. Nous sentons une nouvelle dynamique chez les personnes clés."</p>
+                    <p class="testimonial-author">— DAF / DO PME</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section About avec image -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Qui je suis</h2>
+            
+            <div class="about-content">
+                <h3 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;"><span class="signature">Néné Bathily</span></h3>
+                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px; font-weight: 400;">
+                    Coaching & Conseil stratégique pour dirigeants, femmes leaders et organisations en transformation.<br>
+                    Pour apaiser, éveiller et transformer en commençant par la racine.
+                </p>
+
+                <div class="image-content-section" style="margin-bottom: 50px;">
+                    <div class="image-box">
+                        <img src="photo4.webp" alt="Néné Bathily - Coach Executive">
+                    </div>
+                    <div class="content-box">
+                        <p>Je pourrais vous parler de mes diplômes, de mes 15 ans en finance et stratégie, des départements que j'ai structurés, des levées de fonds que j'ai pilotées.</p>
+                        
+                        <p>Tout ça est vrai.</p>
+                        
+                        <p>Mais ce n'est pas la vraie raison pour laquelle j'accompagne aujourd'hui des dirigeants et leurs organisations.</p>
+                        
+                        <p><strong>La vraie raison, c'est que j'ai vu de l'intérieur ce que les chiffres ne disent pas.</strong></p>
+                    </div>
+                </div>
+                
+                <p>J'ai vu des dirigeants brillants, épuisés.</p>
+                
+                <p>J'ai vu des entreprises bien outillées, mais déconnectées de leur propre vision.</p>
+                
+                <p>J'ai vu des décisions prises sous pression, des équipes sous tension, des organisations qui répètent les mêmes erreurs sans comprendre pourquoi.</p>
+                
+                <p style="font-weight: 600; font-size: 1.25rem; margin-top: 30px;">Alors j'ai décidé de faire ce que personne ne fait vraiment :</p>
+                
+                <ul style="list-style: none; margin: 30px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 15px; font-size: 1.15rem;">— Poser un autre regard sur le dirigeant et son organisation.</li>
+                    <li style="margin-bottom: 15px; font-size: 1.15rem;">— Relier ce qui est visible (stratégie, RH, organisation, système, management)</li>
+                    <li style="font-size: 1.15rem;">— À ce qui est invisible mais décisif (posture, culture, incohérences, non-dits).</li>
+                </ul>
+                
+                <p style="font-weight: 600; font-size: 1.25rem;">Mon travail ?</p>
+                
+                <p>C'est de vous aider à voir autrement.</p>
+                
+                <p>À faire une photographie sincère et lucide :</p>
+                
+                <ul style="list-style: none; margin: 20px 0; padding-left: 20px;">
+                    <li style="margin-bottom: 10px; font-size: 1.15rem;">— De votre organisation : comment elle fonctionne vraiment</li>
+                    <li style="font-size: 1.15rem;">— De vous : comment vous pilotez, décidez, incarnez votre rôle</li>
+                </ul>
+                
+                <p style="font-weight: 600;">Parce qu'on ne soigne pas un mal en masquant les symptômes.</p>
+                
+                <p style="font-weight: 600;">On le soigne en allant à la racine.</p>
+                
+                <p style="font-weight: 600; margin-bottom: 60px;">Avec exigence et bienveillance.</p>
+                
+                <h3 style="font-size: 1.7rem; margin-bottom: 30px; font-weight: 700;">Mon parcours en bref</h3>
+                
+                <ul class="parcours-list">
+                    <li>15+ ans en finance, structuration, stratégie d'entreprise</li>
+                    <li>Nominée aux Trophées du Directeur Administratif et Financier en France (2012)</li>
+                    <li>Coach professionnelle certifiée</li>
+                    <li>Certificat Stratégie & International — HEC Paris</li>
+                    <li>ICCF — International Certificate in Corporate Finance — HEC Paris</li>
+                    <li>Interventions Sénégal, Afrique de l'Ouest, France</li>
+                    <li>+ 150 dirigeants formés</li>
+                    <li>+ 200 entreprises accompagnées</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Foire aux Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Combien de temps dure le diagnostic ?</h3>
+                    <p>10 à 15 jours, avec deux entretiens et un livrable clair et structuré.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Peut-on être accompagné à distance ?</h3>
+                    <p>Oui, la majorité de mes accompagnements se font en visio, au Sénégal et à l'international.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Est-ce confidentiel ?</h3>
+                    <p>Absolument. Chaque accompagnement repose sur un engagement de confidentialité totale.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quelle différence entre le Diagnostic et l'Accompagnement complet ?</h3>
+                    <p>Le diagnostic éclaire. L'accompagnement transforme.<br>Le premier ouvre la conscience, le second ancre le changement.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Intervenez-vous aussi auprès des équipes ?</h3>
+                    <p>Oui, selon le besoin, j'accompagne les managers pour fluidifier la mise en œuvre du plan d'action.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Vous n'avez pas besoin d'en faire plus.<br>Vous avez besoin d'y voir clair.</h2>
+            
+            <p>En 30 minutes, identifiez vos <strong>3 angles morts — humains et organisationnels —</strong><br>et repartez avec une clarté immédiate.</p>
+            
+            <p style="font-size: 1.5rem; font-weight: 600;">Faites le premier pas vers un leadership apaisé et lucide.</p>
+            
+            <div class="cta-buttons">
+                <a href="diagnostic.html" class="btn btn-white">Réserver un Diagnostic Stratégique</a>
+                <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn btn-white">Planifier un échange découverte</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--black); color: var(--white); padding: 40px 20px; text-align: center;">
+        <div class="container">
+            <p style="font-size: 1.8rem; margin-bottom: 15px;"><span class="signature">Néné Bathily</span></p>
+            <p style="font-weight: 300; margin-bottom: 10px; font-size: 1.05rem;">Coaching exécutif & stratégie de transformation</p>
+            <p style="font-weight: 300; font-size: 0.95rem; margin-top: 30px; opacity: 0.7;">
+                © 2025 Néné Bathily - Tous droits réservés
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.offre-card, .approche-item, .faq-item, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

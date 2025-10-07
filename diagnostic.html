@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Stratégique - Néné Bathily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700&family=Brittany+Signature&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-medium: #E0E0E0;
+            --gray-dark: #333333;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            color: var(--black);
+            background-color: var(--gray-light);
+            line-height: 1.7;
+            font-size: 18px;
+            padding: 40px 20px;
+        }
+
+        .signature {
+            font-family: 'Brittany Signature', cursive;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 60px 50px;
+            border: 3px solid var(--black);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .includes-box {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: var(--gray-light);
+            border-left: 4px solid var(--black);
+        }
+
+        .includes-box h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .includes-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .includes-box li {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .includes-box li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        .price-box {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--black);
+            color: var(--white);
+            margin: 40px 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .form-intro {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--gray-medium);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .required {
+            color: var(--black);
+        }
+
+        .btn {
+            padding: 20px 50px;
+            background-color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover:not(:disabled) {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* NOUVEAU STYLE POUR LE MESSAGE DE CONFIRMATION */
+        #formMessage {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 600px;
+            padding: 50px 40px;
+            background-color: var(--white);
+            border: 4px solid var(--success);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        #formMessage.show {
+            display: block;
+        }
+
+        #formMessage.success {
+            border-color: var(--success);
+        }
+
+        #formMessage.error {
+            border-color: #dc3545;
+        }
+
+        #formMessage .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        #formMessage h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        #formMessage p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        #formMessage .close-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--success);
+            color: var(--white);
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #formMessage.error .close-btn {
+            background-color: #dc3545;
+        }
+
+        #formMessage .close-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 40px 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            #formMessage {
+                padding: 40px 30px;
+            }
+
+            #formMessage h2 {
+                font-size: 1.6rem;
+            }
+
+            #formMessage p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay pour le fond sombre -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Message de confirmation modal -->
+    <div id="formMessage">
+        <span class="icon">✅</span>
+        <h2>Merci pour votre demande !</h2>
+        <p><strong>Néné Bathily</strong> reviendra vers vous sous <strong>24 heures</strong> avec les prochaines étapes de votre Diagnostic Stratégique.</p>
+        <button class="close-btn" onclick="closeModal()">Fermer</button>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        
+        <h1>Votre Diagnostic Stratégique<br>Clarté & Performance</h1>
+        
+        <p class="intro">
+            En 15 jours, obtenez une vision claire de votre organisation<br>
+            et de vos leviers de performance.
+        </p>
+        
+        <div class="includes-box">
+            <h2>Ce diagnostic s'adresse aux dirigeants et DG</h2>
+            <p style="margin-bottom: 20px; font-weight: 300; line-height: 1.7;">
+                souhaitant une lecture rapide et neutre de leur organisation, avant d'engager une transformation plus profonde.
+            </p>
+            
+            <h2 style="margin-top: 30px;">Il inclut :</h2>
+            <ul>
+                <li>Un entretien de cadrage (1h30)</li>
+                <li>Une analyse des 3 leviers : stratégie, RH, finances</li>
+                <li>Une restitution et une feuille de route à 90 jours</li>
+            </ul>
+        </div>
+        
+        <div class="price-box">
+            Investissement : à partir de 1 000 000 F CFA
+        </div>
+        
+        <p class="form-intro">
+            Pour réserver votre diagnostic, complétez le formulaire ci-dessous.<br>
+            Vous recevrez une confirmation immédiatement, puis Néné reviendra vers vous sous 24h avec les prochaines étapes.
+        </p>
+        
+        <form id="diagnosticForm" action="https://formspree.io/f/xdkwlgng" method="POST">
+            <div class="form-row">
+                <div>
+                    <label for="prenom">Prénom <span class="required">*</span></label>
+                    <input type="text" id="prenom" name="Prénom" required>
+                </div>
+                <div>
+                    <label for="nom">Nom <span class="required">*</span></label>
+                    <input type="text" id="nom" name="Nom" required>
+                </div>
+            </div>
+
+            <div>
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="Email" required>
+            </div>
+
+            <div>
+                <label for="telephone">Téléphone <span class="required">*</span></label>
+                <input type="tel" id="telephone" name="Téléphone" required>
+            </div>
+
+            <div>
+                <label for="entreprise">Entreprise <span class="required">*</span></label>
+                <input type="text" id="entreprise" name="Entreprise" required>
+            </div>
+
+            <div>
+                <label for="fonction">Fonction <span class="required">*</span></label>
+                <input type="text" id="fonction" name="Fonction" required>
+            </div>
+
+            <div>
+                <label for="taille_equipe">Taille de l'équipe</label>
+                <input type="text" id="taille_equipe" name="Taille_de_l_equipe" placeholder="Ex: 10-50 personnes">
+            </div>
+
+            <div>
+                <label for="message">Quels sont vos enjeux actuels ?</label>
+                <textarea id="message" name="Message" placeholder="Décrivez brièvement les défis que vous rencontrez..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+                🧭 Demander mon Diagnostic Stratégique
+            </button>
+        </form>
+    </div>
+
+    <script>
+        function closeModal() {
+            document.getElementById('formMessage').classList.remove('show');
+            document.getElementById('overlay').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('diagnosticForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formMessage = document.getElementById('formMessage');
+            const overlay = document.getElementById('overlay');
+
+            // Envoi du formulaire à Formspree
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                // Succès → afficher le modal
+                formMessage.classList.remove('error');
+                formMessage.classList.add('success');
+                formMessage.querySelector('.icon').textContent = '✅';
+                formMessage.querySelector('h2').textContent = 'Merci pour votre demande !';
+                formMessage.querySelector('p').innerHTML = '<strong>Néné Bathily</strong> reviendra vers vous sous <strong>24 heures</strong> avec les prochaines étapes de votre Diagnostic Stratégique.';
+                
+                formMessage.classList.add('show');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                
+                form.reset();
+            } else {
+                // Erreur → afficher le modal d'erreur
+                formMessage.classList.remove('success');
+                formMessage.classList.add('error');
+                formMessage.querySelector('.icon').textContent = '❌';
+                formMessage.querySelector('h2').textContent = 'Une erreur est survenue';
+                formMessage.querySelector('p').innerHTML = 'Nous n\'avons pas pu envoyer votre demande. Veuillez réessayer plus tard ou nous contacter directement.';
+                
+                formMessage.classList.add('show');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Fermer le modal en cliquant sur l'overlay
+        document.getElementById('overlay').addEventListener('click', closeModal);
+    </script>
+</body>
+</html>
