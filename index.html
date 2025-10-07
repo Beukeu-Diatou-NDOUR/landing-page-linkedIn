@@ -44,17 +44,31 @@
             padding: 0 20px;
         }
 
+        /* HERO AVEC IMAGE EN BACKGROUND BIEN VISIBLE */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
             position: relative;
             overflow: hidden;
+            background-image: url('photo1.webp');
+            background-size: cover;
+            background-position: center;
         }
 
         .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(245,245,245,0.70) 100%);
+            z-index: 0;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
@@ -66,12 +80,12 @@
                 linear-gradient(0deg, transparent 49.5%, var(--gray-medium) 49.5%, var(--gray-medium) 50.5%, transparent 50.5%);
             background-size: 60px 60px;
             opacity: 0.03;
-            z-index: 0;
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-align: center;
             padding: 60px 20px;
         }
@@ -87,8 +101,20 @@
         .hero-name {
             font-size: 1.4rem;
             font-weight: 400;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             color: var(--gray-dark);
+        }
+
+        /* LOGO AJOUTÉ */
+        .hero-logo {
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .hero-logo img {
+            height: 80px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
         }
 
         .hero h1 {
@@ -198,7 +224,6 @@
             font-weight: 600;
         }
 
-        /* Section Image + Contenu - AMÉLIORÉ */
         .image-content-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -371,6 +396,13 @@
             font-style: italic;
         }
 
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
         .testimonial-card {
             background-color: var(--white);
             padding: 40px;
@@ -393,9 +425,65 @@
             font-style: normal;
         }
 
+        /* SECTION BIOGRAPHIE REDESSINÉE */
+        .about-section-wrapper {
+            background: linear-gradient(to bottom, var(--gray-light) 0%, var(--white) 100%);
+        }
+
+        .about-hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 0;
+            min-height: 600px;
+            margin-bottom: 80px;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            height: 100%;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border: 4px solid var(--black);
+        }
+
+        .about-intro-content {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-intro-content h3 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .about-intro-content .signature-large {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .about-intro-content p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
         .about-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 40px;
         }
 
         .about-content p {
@@ -409,26 +497,57 @@
             font-weight: 700;
         }
 
-        .parcours-list {
-            list-style: none;
-            margin-top: 40px;
+        .about-highlight {
+            background-color: var(--gray-light);
+            padding: 40px;
+            margin: 50px 0;
+            border-left: 4px solid var(--black);
         }
 
-        .parcours-list li {
-            padding: 15px 0;
+        .about-highlight p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-highlight ul {
+            list-style: none;
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+
+        .about-highlight li {
+            margin-bottom: 15px;
             font-size: 1.15rem;
-            border-bottom: 1px solid var(--gray-medium);
             font-weight: 300;
         }
 
-        .parcours-list li:last-child {
-            border-bottom: none;
+        .parcours-list {
+            list-style: none;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .parcours-list li {
+            padding: 20px 25px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            background-color: var(--white);
+            border: 2px solid var(--gray-medium);
+            transition: all 0.3s ease;
+        }
+
+        .parcours-list li:hover {
+            border-color: var(--black);
+            transform: translateX(5px);
         }
 
         .parcours-list li::before {
             content: '—';
-            margin-right: 10px;
-            font-weight: 600;
+            margin-right: 15px;
+            font-weight: 700;
         }
 
         .faq-container {
@@ -515,6 +634,23 @@
             .image-box img {
                 height: 400px;
             }
+
+            .about-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .about-image-wrapper img {
+                height: 400px;
+            }
+
+            .about-intro-content {
+                padding: 50px 40px;
+            }
+
+            .parcours-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -528,6 +664,10 @@
 
             .hero {
                 min-height: 90vh;
+            }
+
+            .hero-logo img {
+                height: 60px;
             }
 
             .deux-colonnes,
@@ -551,8 +691,20 @@
                 height: 300px;
             }
 
-            .vision-background {
-                padding: 80px 0;
+            .about-intro-content {
+                padding: 40px 30px;
+            }
+
+            .about-intro-content h3 {
+                font-size: 2rem;
+            }
+
+            .about-intro-content .signature-large {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                padding: 0 20px;
             }
         }
 
@@ -573,11 +725,16 @@
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section avec image en background -->
     <section class="hero">
         <div class="hero-content fade-in">
             <p class="hero-subtitle">Coaching exécutif & stratégie de transformation</p>
-            <p class="hero-name">Par <span class="signature">Néné Bathily</span> — Coach certifiée & Consultante en stratégie</p>
+            <p class="hero-name">Par <span class="signature">Néné Bathily</span> — Directrice de Gallé Consulting</p>
+            
+            <!-- LOGO AJOUTÉ ICI -->
+            <div class="hero-logo">
+                <img src="logo.webp" alt="Gallé Consulting">
+            </div>
             
             <h1>Dirigeant(e) ou manager :<br>quand tout repose sur vous...<br>et que l'organisation peine à suivre</h1>
             
@@ -630,7 +787,7 @@
         </div>
     </section>
 
-    <!-- Section Vision & Approche avec image -->
+    <!-- Section Vision & Approche -->
     <section>
         <div class="container">
             <h2 class="section-title">Ma vision & mon approche</h2>
@@ -675,10 +832,10 @@
     <!-- Section Offres -->
     <section id="offres">
         <div class="container">
-            <h2 class="section-title">Deux formats d'accompagnement</h2>
+            <h2 class="section-title">Trois formats d'accompagnement</h2>
             
             <p class="section-intro">
-                Selon vos besoins, deux niveaux d'intervention sont possibles :<br>
+                Selon vos besoins, trois niveaux d'intervention sont possibles :<br>
                 un <strong>diagnostic stratégique</strong> pour comprendre,<br>
                 ou un <strong>accompagnement complet</strong> pour transformer.
             </p>
@@ -697,7 +854,7 @@
                     <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique</p>
                     
                     <div class="offre-price">
-                        À partir de 1 000 000 F CFA
+                        À partir de <br> 1 000 000 F CFA
                     </div>
                     
                     <p class="offre-ideal">Idéal pour les dirigeants qui veulent voir clair avant d'agir.</p>
@@ -717,7 +874,7 @@
                     </ul>
                     
                     <div class="offre-price">
-                        Entre 3 500 000 F et 7 000 000 F CFA selon le périmètre
+                        Entre 3 500 000 F et <br> 7 000 000 F CFA selon le périmètre
                     </div>
                     
                     <p class="offre-ideal">Idéal pour les dirigeants et DG de PME en quête d'une transformation durable.</p>
@@ -736,7 +893,7 @@
                     </ul>
                     
                     <div class="offre-price">
-                        À partir de 5 000 000 F CFA
+                        À partir de <br> 5 000 000 F CFA
                     </div>
                     
                     <p class="offre-ideal">Idéal pour les organisations souhaitant allier performance et alignement humain.</p>
@@ -753,7 +910,7 @@
         </div>
     </section>
 
-    <!-- Section Témoignages avec image -->
+    <!-- Section Témoignages -->
     <section>
         <div class="container">
             <h2 class="section-title">Les transformations vécues</h2>
@@ -778,7 +935,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p>"Je tiens à exprimer toute ma satisfaction quant à l'accompagnement stratégique et au coaching personnel que j'ai reçus en tant que Directrice. Néné a fait preuve d'un grand professionnalisme, tout en conservant une dimension profondément humaine et empathique, qui instaure naturellement un climat de confiance. Elle maîtrise parfaitement son sujet et démontre une grande expertise en stratégie d'entreprise. Sa méthodologie est à la fois structurée et engageante : elle embarque, motive et donne envie de s'investir pleinement. Ce qui m'a particulièrement marqué, c'est la fierté que l'on ressent à co-construire, à ses côtés, une stratégie claire, ambitieuse et réaliste, capable de propulser l'entreprise vers un nouveau cap."</p>
-                    <p class="testimonial-author">— DAF / DO PME</p>
+                    <p class="testimonial-author">— Directrice des Opérations et des Finances PME</p>
                 </div>
                 
                 <div class="testimonial-card">
@@ -788,44 +945,46 @@
                 
                 <div class="testimonial-card">
                     <p>"Nous avons observé des évolutions de manière notable dans le fonctionnement de l'entreprise. Nous sentons une nouvelle dynamique chez les personnes clés."</p>
-                    <p class="testimonial-author">— DAF / DO PME</p>
+                    <p class="testimonial-author">— Directrice des Opérations et des Finances PME</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section About avec image -->
-    <section>
+    <!-- Section Biographie REDESSINÉE -->
+    <section class="about-section-wrapper">
         <div class="container">
             <h2 class="section-title">Qui je suis</h2>
             
-            <div class="about-content">
-                <h3 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;"><span class="signature">Néné Bathily</span></h3>
-                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px; font-weight: 400;">
-                    Coaching & Conseil stratégique pour dirigeants, femmes leaders et organisations en transformation.<br>
-                    Pour apaiser, éveiller et transformer en commençant par la racine.
-                </p>
-
-                <div class="image-content-section" style="margin-bottom: 50px;">
-                    <div class="image-box">
-                        <img src="photo4.webp" alt="Néné Bathily - Coach Executive">
-                    </div>
-                    <div class="content-box">
-                        <p>Je pourrais vous parler de mes diplômes, de mes 15 ans en finance et stratégie, des départements que j'ai structurés, des levées de fonds que j'ai pilotées.</p>
-                        
-                        <p>Tout ça est vrai.</p>
-                        
-                        <p>Mais ce n'est pas la vraie raison pour laquelle j'accompagne aujourd'hui des dirigeants et leurs organisations.</p>
-                        
-                        <p><strong>La vraie raison, c'est que j'ai vu de l'intérieur ce que les chiffres ne disent pas.</strong></p>
-                    </div>
+            <!-- Hero de la biographie avec image pleine hauteur -->
+            <div class="about-hero">
+                <div class="about-image-wrapper">
+                    <img src="photo4.webp" alt="Néné Bathily - Coach Executive">
                 </div>
+                <div class="about-intro-content">
+                    <span class="signature signature-large">Néné Bathily</span>
+                    <p style="font-size: 1.4rem; font-weight: 400; margin-bottom: 30px;">
+                        Coaching & Conseil stratégique pour dirigeants, femmes leaders et organisations en transformation.
+                    </p>
+                    
+                </div>
+            </div>
+
+            <!-- Contenu principal -->
+            <div class="about-content">
+                <p>Je pourrais vous parler de mes diplômes, de mes 15 ans en finance et stratégie, des départements que j'ai structurés, des levées de fonds que j'ai pilotées.</p>
                 
-                <p>J'ai vu des dirigeants brillants, épuisés.</p>
+                <p>Tout ça est vrai.</p>
                 
-                <p>J'ai vu des entreprises bien outillées, mais déconnectées de leur propre vision.</p>
+                <p>Mais ce n'est pas la vraie raison pour laquelle j'accompagne aujourd'hui des dirigeants et leurs organisations.</p>
                 
-                <p>J'ai vu des décisions prises sous pression, des équipes sous tension, des organisations qui répètent les mêmes erreurs sans comprendre pourquoi.</p>
+                <p><strong>La vraie raison, c'est que j'ai vu de l'intérieur ce que les chiffres ne disent pas.</strong></p>
+                
+                <div class="about-highlight">
+                    <p>J'ai vu des dirigeants brillants, épuisés.</p>
+                    <p>J'ai vu des entreprises bien outillées, mais déconnectées de leur propre vision.</p>
+                    <p>J'ai vu des décisions prises sous pression, des équipes sous tension, des organisations qui répètent les mêmes erreurs sans comprendre pourquoi.</p>
+                </div>
                 
                 <p style="font-weight: 600; font-size: 1.25rem; margin-top: 30px;">Alors j'ai décidé de faire ce que personne ne fait vraiment :</p>
                 
@@ -852,7 +1011,7 @@
                 
                 <p style="font-weight: 600; margin-bottom: 60px;">Avec exigence et bienveillance.</p>
                 
-                <h3 style="font-size: 1.7rem; margin-bottom: 30px; font-weight: 700;">Mon parcours en bref</h3>
+                <h3 style="font-size: 1.7rem; margin-bottom: 30px; font-weight: 700; text-align: center;">Mon parcours en bref</h3>
                 
                 <ul class="parcours-list">
                     <li>15+ ans en finance, structuration, stratégie d'entreprise</li>
