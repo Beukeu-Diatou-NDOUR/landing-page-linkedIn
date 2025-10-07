@@ -645,7 +645,11 @@
             }
 
             .about-intro-content {
-                padding: 50px 40px;
+                padding: 50px 30px;
+            }
+
+            .about-intro-content .signature-large {
+                font-size: 3.5rem;
             }
 
             .parcours-list {
@@ -662,12 +666,58 @@
                 padding: 60px 0;
             }
 
+            .container {
+                padding: 0 15px;
+            }
+
             .hero {
                 min-height: 90vh;
+                padding: 20px 0;
+            }
+
+            .hero-content {
+                padding: 40px 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-name {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
             }
 
             .hero-logo img {
                 height: 60px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                line-height: 1.3;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+            }
+
+            .hero-tagline p {
+                margin-top: 15px !important;
+            }
+
+            .section-title {
+                font-size: 1.9rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+
+            .section-intro {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+                padding: 0 10px;
             }
 
             .deux-colonnes,
@@ -675,6 +725,32 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+
+            .colonne {
+                padding: 30px 25px;
+            }
+
+            .colonne h3 {
+                font-size: 1.6rem;
+            }
+
+            .colonne li {
+                font-size: 1.05rem;
+                padding: 12px 0;
+            }
+
+            .offre-card {
+                padding: 40px 25px;
+            }
+
+            .offre-card h3 {
+                font-size: 1.7rem;
+            }
+
+            .offre-price {
+                font-size: 1.2rem;
+                padding: 15px;
             }
 
             .cta-buttons {
@@ -685,26 +761,153 @@
             .btn {
                 width: 100%;
                 max-width: 350px;
+                padding: 18px 30px;
+                font-size: 1rem;
             }
 
             .image-box img {
                 height: 300px;
             }
 
-            .about-intro-content {
-                padding: 40px 30px;
+            .content-box {
+                padding: 10px;
             }
 
-            .about-intro-content h3 {
-                font-size: 2rem;
+            .content-box h3 {
+                font-size: 1.6rem;
+            }
+
+            .content-box p {
+                font-size: 1.05rem;
+            }
+
+            .testimonial-card {
+                padding: 30px 25px;
+            }
+
+            .testimonial-card p {
+                font-size: 1.05rem;
+            }
+
+            .about-intro-content {
+                padding: 40px 25px;
             }
 
             .about-intro-content .signature-large {
-                font-size: 3rem;
+                font-size: 2.8rem;
+            }
+
+            .about-intro-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .about-intro-content p {
+                font-size: 1.15rem;
             }
 
             .about-content {
-                padding: 0 20px;
+                padding: 0 15px;
+            }
+
+            .about-content p {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .about-highlight {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+
+            .about-highlight p {
+                font-size: 1.15rem;
+            }
+
+            .parcours-list {
+                margin-top: 30px;
+                gap: 15px;
+            }
+
+            .parcours-list li {
+                padding: 18px 20px;
+                font-size: 1.05rem;
+            }
+
+            .faq-container {
+                padding: 0 10px;
+            }
+
+            .faq-item {
+                padding: 25px 20px;
+                margin-bottom: 20px;
+            }
+
+            .faq-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .faq-item p {
+                font-size: 1.05rem;
+            }
+
+            .cta-final {
+                padding: 60px 15px;
+            }
+
+            .cta-final h2 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .cta-final p {
+                font-size: 1.15rem;
+                margin-bottom: 20px;
+            }
+
+            .premium-message {
+                padding: 30px 25px;
+                font-size: 1.15rem;
+                margin: 40px auto;
+            }
+
+            footer {
+                padding: 30px 15px;
+            }
+
+            footer .signature {
+                font-size: 1.5rem;
+            }
+
+            footer p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Très petits écrans */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .btn {
+                padding: 16px 25px;
+                font-size: 0.95rem;
+            }
+
+            .about-intro-content .signature-large {
+                font-size: 2.5rem;
+            }
+
+            .offre-card h3 {
+                font-size: 1.5rem;
             }
         }
 
@@ -966,7 +1169,9 @@
                     <p style="font-size: 1.4rem; font-weight: 400; margin-bottom: 30px;">
                         Coaching & Conseil stratégique pour dirigeants, femmes leaders et organisations en transformation.
                     </p>
-                    
+                    <p style="font-size: 1.2rem; font-style: italic;">
+                        Pour apaiser, éveiller et transformer en commençant par la racine.
+                    </p>
                 </div>
             </div>
 
