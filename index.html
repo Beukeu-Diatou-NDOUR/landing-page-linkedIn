@@ -105,16 +105,28 @@
             color: var(--gray-dark);
         }
 
-        /* LOGO AJOUTÉ */
-        .hero-logo {
-            display: inline-block;
-            margin-bottom: 40px;
+        /* LOGO EN HAUT À GAUCHE */
+        .top-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        .hero-logo img {
-            height: 80px;
+        .top-logo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .top-logo img {
+            height: 50px;
             width: auto;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+            display: block;
         }
 
         .hero h1 {
@@ -147,7 +159,6 @@
             transition: all 0.3s ease;
             border: 2px solid var(--black);
             text-transform: uppercase;
-            margin: 0 auto;
         }
 
         .btn:hover {
@@ -671,6 +682,16 @@
                 padding: 0 15px;
             }
 
+            .top-logo {
+                top: 15px;
+                left: 15px;
+                padding: 8px 12px;
+            }
+
+            .top-logo img {
+                height: 40px;
+            }
+
             .hero {
                 min-height: 90vh;
                 padding: 20px 0;
@@ -764,7 +785,6 @@
                 max-width: 350px;
                 padding: 18px 30px;
                 font-size: 1rem;
-                margin: 0 auto;
             }
 
             .image-box img {
@@ -902,7 +922,6 @@
             .btn {
                 padding: 16px 25px;
                 font-size: 0.95rem;
-                margin: 0 auto;
             }
 
             .about-intro-content .signature-large {
@@ -913,6 +932,10 @@
                 font-size: 1.5rem;
             }
         }
+
+            .top-logo img {
+                height: 35px;
+            }
 
         @keyframes fadeInUp {
             from {
@@ -929,29 +952,20 @@
             animation: fadeInUp 0.8s ease-out;
         }
 
-        .btn {
-    width: 100%;
-    max-width: 350px;
-    padding: 18px 30px;
-    font-size: 1rem;
-    display: block;      /* permet à margin:auto de fonctionner */
-    margin: 40px auto 0; /* centre horizontalement + espace au-dessus */
-    text-align: center;  /* centre le texte à l’intérieur */
-}
-
     </style>
 </head>
+
 <body>
+    <!-- LOGO EN HAUT À GAUCHE -->
+    <div class="top-logo">
+        <img src="logo.webp" alt="Gallé Consulting">
+    </div>
+
     <!-- Hero Section avec image en background -->
     <section class="hero">
         <div class="hero-content fade-in">
             <p class="hero-subtitle">Coaching exécutif & stratégie de transformation</p>
             <p class="hero-name">Par <span class="signature">Néné Bathily</span> — Directrice de Gallé Consulting</p>
-            
-            <!-- LOGO AJOUTÉ ICI -->
-            <div class="hero-logo">
-                <img src="logo.webp" alt="Gallé Consulting">
-            </div>
             
             <h1>Dirigeant(e) ou manager :<br>quand tout repose sur vous...<br>et que l'organisation peine à suivre</h1>
             
@@ -1001,8 +1015,9 @@
                 C'est <strong>un signal d'alignement</strong>.<br>
                 Et c'est souvent le point de départ d'une transformation puissante.
             </p>
-            <a href="diagnostic.html" class="btn">Réserver mon diagnostic</a>
+
         </div>
+
     </section>
 
     <!-- Section Vision & Approche -->
@@ -1054,36 +1069,13 @@
             
             <p class="section-intro">
                 Selon vos besoins, trois niveaux d'intervention sont possibles :<br>
-                un <strong>accompagnement en coaching</strong> pour retrouver clarté et sérénité,<br>
                 un <strong>diagnostic stratégique</strong> pour comprendre,<br>
                 ou un <strong>accompagnement complet</strong> pour transformer.
             </p>
-             
+
             
             <div class="offres-grid">
-                <div class="offre-card">
-                    <h3>Séance de Coaching - 1h pour respirer, décider, avancer</h3>
-                    <p>Un espace confidentiel et bienveillant pour :</p>
-                    
-                    <ul class="offre-features">
-                        <li>Déposer la charge</li>
-                        <li>Clarifier une décision</li>
-                        <li>Retrouver ton centre</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px;"><strong>Format :</strong> 1h - en visio ou présentiel</p>
-                    
-                    <div class="offre-price">
-                        Investissement :<br>130 000 F CFA
-                    </div>
-                    
-                    <p class="offre-ideal">Idéal pour les dirigeants ou managers qui ressentent le besoin de faire une pause, de comprendre ce qu'ils vivent et d'y voir plus clair.</p>
-                    
-                    <a href="reservation-diagnostic.html" class="btn">Réserver ma séance de coaching</a>
-
-                    <br>  <p class="offre-ideal">Cette séance peut être suivie d'un accompagnement personnalisé (4 à 6 séances) si vous souhaitez évoluer intérieurement avant de transformer votre entreprise.</p> 
-                </div>
-
+                
                 <div class="offre-card">
                     <h3>Diagnostic Stratégique Dirigeant</h3>
                     <p>En 10 à 15 jours, obtenez une <strong>lecture claire et neutre</strong> de votre organisation et de votre posture de leader.</p>
@@ -1091,6 +1083,7 @@
                     <ul class="offre-features">
                         <li>Analyse croisée des 3 leviers : Stratégie — RH — Finances</li>
                         <li>Identification des déséquilibres humains et structurels</li>
+                        <li>Feuille de route à 90 jours avec les 3 leviers prioritaires</li>
                     </ul>
                     
                     <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique</p>
@@ -1111,13 +1104,12 @@
                     <ul class="offre-features">
                         <li>Sortir de la surcharge mentale grâce à un coaching transformateur</li>
                         <li>Reconnecter à votre vision et votre leadership</li>
-                        <li>Elaboration du plan stratégique et commercial</li>
-                        <li>Structuration RH et renforcement du middle management</li>
+                        <li>Structurer une organisation plus fluide, sereine et performante</li>
                         <li>Former et coacher vos managers</li>
                     </ul>
                     
                     <div class="offre-price">
-                        A partir de 5 000 000 / mois
+                        Entre 3 500 000 F et <br> 7 000 000 F CFA selon le périmètre
                     </div>
                     
                     <p class="offre-ideal">Idéal pour les dirigeants et DG de PME en quête d'une transformation durable.</p>
@@ -1125,6 +1117,24 @@
                     <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
                 </div>
                 
+                <div class="offre-card">
+                    <h3>Transformation Stratégique & Managériale</h3>
+                    <p>Une démarche complète pour les organisations en mutation.</p>
+                    
+                    <ul class="offre-features">
+                        <li>Élaboration du plan stratégique et commercial</li>
+                        <li>Structuration RH et renforcement du middle management</li>
+                        <li>Coaching collectif des managers et accompagnement du DG</li>
+                    </ul>
+                    
+                    <div class="offre-price">
+                        À partir de <br> 5 000 000 F CFA
+                    </div>
+                    
+                    <p class="offre-ideal">Idéal pour les organisations souhaitant allier performance et alignement humain.</p>
+                    
+                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
+                </div>
             </div>
             
             <div class="premium-message">
