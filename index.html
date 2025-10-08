@@ -147,6 +147,7 @@
             transition: all 0.3s ease;
             border: 2px solid var(--black);
             text-transform: uppercase;
+            margin: 0 auto;
         }
 
         .btn:hover {
@@ -763,6 +764,7 @@
                 max-width: 350px;
                 padding: 18px 30px;
                 font-size: 1rem;
+                margin: 0 auto;
             }
 
             .image-box img {
@@ -900,6 +902,7 @@
             .btn {
                 padding: 16px 25px;
                 font-size: 0.95rem;
+                margin: 0 auto;
             }
 
             .about-intro-content .signature-large {
@@ -925,6 +928,17 @@
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }
+
+        .btn {
+    width: 100%;
+    max-width: 350px;
+    padding: 18px 30px;
+    font-size: 1rem;
+    display: block;      /* permet à margin:auto de fonctionner */
+    margin: 40px auto 0; /* centre horizontalement + espace au-dessus */
+    text-align: center;  /* centre le texte à l’intérieur */
+}
+
     </style>
 </head>
 <body>
@@ -987,6 +1001,7 @@
                 C'est <strong>un signal d'alignement</strong>.<br>
                 Et c'est souvent le point de départ d'une transformation puissante.
             </p>
+            <a href="diagnostic.html" class="btn">Réserver mon diagnostic</a>
         </div>
     </section>
 
@@ -1039,11 +1054,36 @@
             
             <p class="section-intro">
                 Selon vos besoins, trois niveaux d'intervention sont possibles :<br>
+                un <strong>accompagnement en coaching</strong> pour retrouver clarté et sérénité,<br>
                 un <strong>diagnostic stratégique</strong> pour comprendre,<br>
                 ou un <strong>accompagnement complet</strong> pour transformer.
             </p>
+             
             
             <div class="offres-grid">
+                <div class="offre-card">
+                    <h3>Séance de Coaching - 1h pour respirer, décider, avancer</h3>
+                    <p>Un espace confidentiel et bienveillant pour :</p>
+                    
+                    <ul class="offre-features">
+                        <li>Déposer la charge</li>
+                        <li>Clarifier une décision</li>
+                        <li>Retrouver ton centre</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>Format :</strong> 1h - en visio ou présentiel</p>
+                    
+                    <div class="offre-price">
+                        Investissement :<br>130 000 F CFA
+                    </div>
+                    
+                    <p class="offre-ideal">Idéal pour les dirigeants ou managers qui ressentent le besoin de faire une pause, de comprendre ce qu'ils vivent et d'y voir plus clair.</p>
+                    
+                    <a href="reservation-diagnostic.html" class="btn">Réserver ma séance de coaching</a>
+
+                    <br>  <p class="offre-ideal">Cette séance peut être suivie d'un accompagnement personnalisé (4 à 6 séances) si vous souhaitez évoluer intérieurement avant de transformer votre entreprise.</p> 
+                </div>
+
                 <div class="offre-card">
                     <h3>Diagnostic Stratégique Dirigeant</h3>
                     <p>En 10 à 15 jours, obtenez une <strong>lecture claire et neutre</strong> de votre organisation et de votre posture de leader.</p>
@@ -1051,7 +1091,6 @@
                     <ul class="offre-features">
                         <li>Analyse croisée des 3 leviers : Stratégie — RH — Finances</li>
                         <li>Identification des déséquilibres humains et structurels</li>
-                        <li>Feuille de route à 90 jours avec les 3 leviers prioritaires</li>
                     </ul>
                     
                     <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique</p>
@@ -1072,12 +1111,13 @@
                     <ul class="offre-features">
                         <li>Sortir de la surcharge mentale grâce à un coaching transformateur</li>
                         <li>Reconnecter à votre vision et votre leadership</li>
-                        <li>Structurer une organisation plus fluide, sereine et performante</li>
+                        <li>Elaboration du plan stratégique et commercial</li>
+                        <li>Structuration RH et renforcement du middle management</li>
                         <li>Former et coacher vos managers</li>
                     </ul>
                     
                     <div class="offre-price">
-                        Entre 3 500 000 F et <br> 7 000 000 F CFA selon le périmètre
+                        A partir de 5 000 000 / mois
                     </div>
                     
                     <p class="offre-ideal">Idéal pour les dirigeants et DG de PME en quête d'une transformation durable.</p>
@@ -1085,24 +1125,6 @@
                     <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
                 </div>
                 
-                <div class="offre-card">
-                    <h3>Transformation Stratégique & Managériale</h3>
-                    <p>Une démarche complète pour les organisations en mutation.</p>
-                    
-                    <ul class="offre-features">
-                        <li>Élaboration du plan stratégique et commercial</li>
-                        <li>Structuration RH et renforcement du middle management</li>
-                        <li>Coaching collectif des managers et accompagnement du DG</li>
-                    </ul>
-                    
-                    <div class="offre-price">
-                        À partir de <br> 5 000 000 F CFA
-                    </div>
-                    
-                    <p class="offre-ideal">Idéal pour les organisations souhaitant allier performance et alignement humain.</p>
-                    
-                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
-                </div>
             </div>
             
             <div class="premium-message">

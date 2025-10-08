@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver mon Diagnostic - Néné Bathily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600;700&family=Brittany+Signature&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="logo.webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-medium: #E0E0E0;
+            --gray-dark: #333333;
+            --wave-blue: #1E88E5;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            color: var(--black);
+            background-color: var(--gray-light);
+            line-height: 1.7;
+            font-size: 18px;
+            padding: 40px 20px;
+        }
+
+        .signature {
+            font-family: 'Brittany Signature', cursive;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px 40px;
+            border: 3px solid var(--black);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gray-dark);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--gray-medium);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--black);
+        }
+
+        .required {
+            color: var(--black);
+        }
+
+        .btn {
+            padding: 20px 50px;
+            background-color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover:not(:disabled) {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .payment-info {
+            display: none;
+            margin-top: 30px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--wave-blue), #1565C0);
+            color: var(--white);
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .payment-info.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .payment-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .wave-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            letter-spacing: 2px;
+        }
+
+        .payment-instructions {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .payment-instructions ol {
+            text-align: left;
+            max-width: 500px;
+            margin: 20px auto;
+            padding-left: 25px;
+        }
+
+        .payment-instructions li {
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 20px;
+            text-align: center;
+            display: none;
+            font-size: 1.1rem;
+            border-radius: 4px;
+        }
+
+        .form-message.success {
+            background-color: var(--success);
+            color: var(--white);
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #dc3545;
+            color: var(--white);
+            display: block;
+        }
+
+        .spinner {
+            display: none;
+            border: 3px solid var(--gray-light);
+            border-top: 3px solid var(--black);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .form-message .spinner {
+            display: inline-block;
+            margin-right: 10px;
+            border-top-color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .intro {
+                font-size: 1.05rem;
+            }
+
+            .wave-number {
+                font-size: 2rem;
+                padding: 15px;
+            }
+
+            .payment-info {
+                padding: 30px 20px;
+            }
+
+            .payment-instructions {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        
+        <h1>Réserver mon Diagnostic Stratégique</h1>
+        
+        <p class="intro">
+            Complétez vos informations pour réserver votre diagnostic.<br>
+            Vous recevrez ensuite les instructions de paiement Wave.
+        </p>
+        
+        <form id="reservationForm" action="https://formspree.io/f/xdkwlgng" method="POST">
+            <div>
+                <label for="prenom">Prénom <span class="required">*</span></label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            
+            <div>
+                <label for="nom">Nom <span class="required">*</span></label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            
+            <div>
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div>
+                <label for="telephone">Téléphone <span class="required">*</span></label>
+                <input type="tel" id="telephone" name="telephone" placeholder="Ex: 77 123 45 67" required>
+            </div>
+
+            <input type="hidden" name="_subject" value="Nouvelle réservation de Diagnostic Stratégique">
+            
+            <button type="submit" class="btn" id="submitBtn">
+                Valider ma réservation
+            </button>
+        </form>
+        
+        <div id="formMessage" class="form-message"></div>
+
+        <div id="paymentInfo" class="payment-info">
+            <h2>Merci pour votre réservation !</h2>
+            
+            <p class="payment-instructions">
+                Pour finaliser votre réservation, veuillez effectuer le paiement via Wave au numéro suivant :
+            </p>
+
+            <div class="wave-number">76 639 09 52</div>
+
+            <div class="payment-instructions">
+                <strong>Instructions de paiement :</strong>
+                <ol>
+                    <li>Ouvrez votre application Wave</li>
+                    <li>Sélectionnez "Envoyer de l'argent"</li>
+                    <li>Entrez le numéro : <strong>76 639 09 52</strong></li>
+                    <li>Montant : <strong>130.000 F CFA</strong></li>
+                </ol>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Une fois le paiement effectué :</strong></p>
+                <p>Nous vous contacterons sous 24h pour planifier vos entretiens.</p>
+                <p>Pour toute question : contactez-nous directement</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('reservationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        const paymentInfo = document.getElementById('paymentInfo');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Désactiver le bouton et afficher le chargement
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'block';
+            formMessage.innerHTML = '<div class="spinner"></div> Envoi de votre réservation...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Succès - Masquer le formulaire et afficher les infos de paiement
+                    formMessage.style.display = 'none';
+                    form.style.display = 'none';
+                    paymentInfo.classList.add('show');
+                    
+                    // Scroll vers les infos de paiement
+                    paymentInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    throw new Error('Erreur lors de l\'envoi');
+                }
+            } catch (error) {
+                formMessage.className = 'form-message error';
+                formMessage.innerHTML = `
+                    <strong>Une erreur est survenue</strong><br><br>
+                    Veuillez réessayer ou nous contacter directement.
+                `;
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Valider ma réservation';
+            }
+        });
+    </script>
+</body>
+</html>
