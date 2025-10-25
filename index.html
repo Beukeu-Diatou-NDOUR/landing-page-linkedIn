@@ -314,6 +314,7 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 60px;
+            align-items: start;
         }
 
         .offre-card {
@@ -322,6 +323,9 @@
             border: 2px solid var(--black);
             position: relative;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .offre-card:hover {
@@ -330,34 +334,40 @@
         }
 
         .offre-card h3 {
-            font-size: 2rem;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .offre-card p {
             margin-bottom: 20px;
             font-weight: 300;
             line-height: 1.7;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         .offre-card .btn {
             display: block;
-            margin: 0 auto;
+            margin: auto auto 0;
+            margin-top: 30px;
+        }
+
+        .offre-content {
+            flex: 1;
         }
 
         .offre-features {
             list-style: none;
-            margin: 30px 0;
+            margin: 20px 0 25px 0;
         }
 
         .offre-features li {
-            padding: 12px 0;
+            padding: 10px 0;
             font-weight: 400;
             position: relative;
             padding-left: 25px;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         .offre-features li::before {
@@ -367,21 +377,40 @@
             font-weight: 700;
         }
 
-        .offre-price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: var(--gray-light);
-            text-align: center;
-        }
-
         .offre-ideal {
             font-style: italic;
             color: var(--gray-dark);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            margin-top: 20px;
             font-weight: 300;
-            font-size: 1.05rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .formation-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .formation-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: var(--gray-light);
+            border-left: 4px solid var(--black);
+        }
+
+        .formation-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .formation-item p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
         .premium-message {
@@ -406,24 +435,29 @@
 
         .testimonial-card {
             background-color: var(--white);
-            padding: 40px;
+            padding: 35px;
             border-left: 4px solid var(--black);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-card p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 300;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            line-height: 1.7;
+            margin-bottom: 20px;
             font-style: italic;
+            flex: 1;
         }
 
         .testimonial-author {
-            font-weight: bold;
-            font-size: 1rem;
-            color: var(--gray-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--black);
             font-style: normal;
+            margin-top: auto;
+            white-space: nowrap;
         }
 
         /* SECTION BIOGRAPHIE REDESSINÉE */
@@ -747,12 +781,43 @@
             }
 
             .offre-card h3 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
+                line-height: 1.2;
+            }
+            
+            .offre-card p {
+                font-size: 1rem;
+            }
+            
+            .offre-features li {
+                font-size: 0.95rem;
+                padding: 8px 0;
+            }
+            
+            .formation-item {
+                padding: 18px;
+                margin-bottom: 15px;
+            }
+            
+            .formation-item h4 {
+                font-size: 1.1rem;
+            }
+            
+            .formation-item p {
+                font-size: 0.95rem;
             }
 
-            .offre-price {
-                font-size: 1.2rem;
-                padding: 15px;
+            .testimonial-card {
+                padding: 30px 25px;
+            }
+
+            .testimonial-card p {
+                font-size: 1rem;
+                line-height: 1.65;
+            }
+            
+            .testimonial-author {
+                font-size: 0.9rem;
             }
 
             .cta-buttons {
@@ -783,14 +848,7 @@
             .content-box p {
                 font-size: 1.05rem;
             }
-
-            .testimonial-card {
-                padding: 30px 25px;
-            }
-
-            .testimonial-card p {
-                font-size: 1.05rem;
-            }
+            
 
             .about-intro-content {
                 padding: 40px 25px;
@@ -911,7 +969,21 @@
             }
 
             .offre-card h3 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+            
+            .offre-card p,
+            .offre-features li,
+            .formation-item p {
+                font-size: 0.9rem;
+            }
+            
+            .formation-item h4 {
+                font-size: 1rem;
+            }
+            
+            .testimonial-card p {
+                font-size: 0.95rem;
             }
         }
 
@@ -931,47 +1003,47 @@
         }
 
         .btn {
-    width: 100%;
-    max-width: 350px;
-    padding: 18px 30px;
-    font-size: 1rem;
-    display: block;      /* permet à margin:auto de fonctionner */
-    margin: 40px auto 0; /* centre horizontalement + espace au-dessus */
-    text-align: center;  /* centre le texte à l’intérieur */
-}
+            width: 100%;
+            max-width: 350px;
+            padding: 18px 30px;
+            font-size: 1rem;
+            display: block;
+            margin: 40px auto 0;
+            text-align: center;
+        }
 
-/* HEADER - LOGO EN HAUT À GAUCHE */
-.site-header {
-    position: fixed;
-    top: 20px;
-    left: 40px;
-    z-index: 1000; /* reste au-dessus du contenu */
-}
+        /* HEADER - LOGO EN HAUT À GAUCHE */
+        .site-header {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            z-index: 1000;
+        }
 
-.site-logo {
-    height: auto;
-    width: 135px;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
-}
+        .site-logo {
+            height: auto;
+            width: 135px;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+        }
 
-@media (max-width: 90px) {
-    .site-header {
-        top: 15px;
-        left: 20px;
-    }
+        @media (max-width: 90px) {
+            .site-header {
+                top: 15px;
+                left: 20px;
+            }
 
-    .site-logo {
-        height: 50px;
-    }
-}
+            .site-logo {
+                height: 50px;
+            }
+        }
 
-@media (max-width: 768px) {
-  .logo {
-    width: 50px; /* tu peux descendre à 40px si tu veux encore plus petit */
-  }
-}
+        @media (max-width: 768px) {
+            .logo {
+                width: 50px;
+            }
+        }
 
-    .agir {
+        .agir {
             font-size: 1.3rem;
             text-align: center;
             max-width: 900px;
@@ -982,6 +1054,7 @@
 
 
     </style>
+
 </head>
 
 <body>
@@ -1110,75 +1183,83 @@
                 Selon vos besoins, trois niveaux d'intervention sont possibles :<br>
                 un <strong>accompagnement en coaching</strong> pour retrouver clarté et sérénité,<br>
                 un <strong>diagnostic stratégique</strong> pour comprendre,<br>
-                ou un <strong>accompagnement complet</strong> pour transformer.
+                ou des <strong>formations</strong> pour développer vos leaders et managers.
             </p>
              
             
             <div class="offres-grid">
                 <div class="offre-card">
-                    <h3>Séance de Coaching - 1h pour respirer, décider, avancer</h3>
-                    <p>Un espace confidentiel et bienveillant pour :</p>
-                    
-                    <ul class="offre-features">
-                        <li>Déposer la charge</li>
-                        <li>Clarifier une décision</li>
-                        <li>Retrouver votre centre</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px;"><strong>Format :</strong> 1h - en visio ou présentiel</p>
-                    
-                    <div class="offre-price">
-                        Investissement :<br>150 000 F CFA
+                    <div class="offre-content">
+                        <h3>Séance de Coaching</h3>
+                        <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 20px;">1h pour respirer, décider, avancer</p>
+                        <p>Un espace confidentiel et bienveillant pour :</p>
+                        
+                        <ul class="offre-features">
+                            <li>Déposer la charge</li>
+                            <li>Clarifier une décision</li>
+                            <li>Retrouver votre centre</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>Format :</strong> 1h - en visio ou présentiel</p>
+                        
+                        <p class="offre-ideal">Idéal pour les dirigeants ou managers qui ressentent le besoin de faire une pause, de comprendre ce qu'ils vivent et d'y voir plus clair.</p>
+                        
+                        <p class="offre-ideal">Cette séance peut être suivie d'un accompagnement personnalisé (4 à 6 séances) si vous souhaitez évoluer intérieurement avant de transformer votre entreprise.</p>
                     </div>
                     
-                    <p class="offre-ideal">Idéal pour les dirigeants ou managers qui ressentent le besoin de faire une pause, de comprendre ce qu'ils vivent et d'y voir plus clair.</p>
-                    
-                    <a href="reservation-diagnostic.html" class="btn">Réserver ma séance de coaching</a>
-
-                    <br>  <p class="offre-ideal">Cette séance peut être suivie d'un accompagnement personnalisé (4 à 6 séances) si vous souhaitez évoluer intérieurement avant de transformer votre entreprise.</p> 
+                    <a href="reservation-diagnostic.html" class="btn">Réserver ma séance</a>
                 </div>
 
                 <div class="offre-card">
-                    <h3>Diagnostic Stratégique Dirigeant</h3>
-                    <p>En 10 à 15 jours, obtenez une <strong>lecture claire et neutre</strong> de votre organisation et de votre posture de leader.</p>
-                    
-                    <ul class="offre-features">
-                        <li>Analyse croisée des 3 leviers : Stratégie — RH — Finances</li>
-                        <li>Identification des déséquilibres humains et structurels</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique</p>
-                    
-                    <div class="offre-price">
-                        À partir de <br> 2 000 000 F CFA
+                    <div class="offre-content">
+                        <h3>Diagnostic Stratégique Dirigeant</h3>
+                        <p>En 10 à 15 jours, obtenez une <strong>lecture claire et neutre</strong> de votre organisation et de votre posture de leader.</p>
+                        
+                        <ul class="offre-features">
+                            <li>Analyse croisée des 3 leviers : Stratégie — RH — Finances</li>
+                            <li>Identification des déséquilibres humains et structurels</li>
+                            <li>Révélation de vos angles morts organisationnels</li>
+                            <li>Plan d'action concret et priorisé</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>Format :</strong> 2 entretiens + livrable stratégique complet</p>
+                        
+                        <p class="offre-ideal">Idéal pour les dirigeants qui veulent voir clair avant d'agir et prendre des décisions éclairées sur l'avenir de leur organisation.</p>
+
                     </div>
-                    
-                    <p class="offre-ideal">Idéal pour les dirigeants qui veulent voir clair avant d'agir.</p>
-                    
+
                     <a href="diagnostic.html" class="btn">Réserver mon Diagnostic</a>
                 </div>
                 
                 <div class="offre-card">
-                    <h3>Accompagnement Dirigeant & Organisation Alignés</h3>
-                    <p>Un accompagnement complet sur plusieurs mois, pour réaligner votre posture intérieure, votre vision stratégique et la dynamique de votre organisation.</p>
-                    
-                    <ul class="offre-features">
-                        <li>Sortir de la surcharge mentale grâce à un coaching transformateur</li>
-                        <li>Reconnecter à votre vision et votre leadership</li>
-                        <li>Elaboration du plan stratégique et commercial</li>
-                        <li>Structuration RH et renforcement du middle management</li>
-                        <li>Former et coacher vos managers</li>
-                    </ul>
-                    
-                    <div class="offre-price">
-                        A partir de <br> 5 000 000 F CFA
+                    <div class="offre-content">
+                        <h3>Formations Dirigeants & Managers</h3>
+                        <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 20px;">Leadership et management alignés</p>
+                        <p>Des formations conçues pour développer des leaders conscients, capables de conjuguer valeurs, impact et performance.</p>
+                        
+                        <div class="formation-list">
+                            <div class="formation-item">
+                                <h4>1. Manager avec alignement et impact</h4>
+                                <p>Diriger sans se perdre, en restant fidèle à ses valeurs tout en obtenant des résultats concrets.</p>
+                            </div>
+                            
+                            <div class="formation-item">
+                                <h4>2. Recruter avec discernement</h4>
+                                <p>Attirer, sélectionner et intégrer les bons talents en cohérence avec la culture et la vision de l'entreprise.</p>
+                            </div>
+                            
+                            <div class="formation-item">
+                                <h4>3. Coordonner, planifier et exécuter avec clarté</h4>
+                                <p>Transformer les idées en actions concrètes, mobiliser les équipes et piloter efficacement les priorités.</p>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px; font-weight: 400;"><strong>Formats :</strong> présentiel ou en ligne – intra ou inter entreprise</p>
+                        <p style="font-weight: 400; margin-bottom: 0;"><strong>Investissement :</strong> sur devis selon le format et le nombre de participants</p>
                     </div>
                     
-                    <p class="offre-ideal">Idéal pour les dirigeants et DG de PME en quête d'une transformation durable.</p>
-                    
-                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Planifier un échange découverte</a>
+                    <a href="https://calendly.com/nbathily-galle-consulting/30min" target="_blank" class="btn">Discuter d'une session</a>
                 </div>
-                
             </div>
             
             <div class="premium-message">
@@ -1214,17 +1295,32 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p>"Je tiens à exprimer toute ma satisfaction quant à l'accompagnement stratégique et au coaching personnel que j'ai reçus en tant que Directrice. Néné a fait preuve d'un grand professionnalisme, tout en conservant une dimension profondément humaine et empathique, qui instaure naturellement un climat de confiance. Elle maîtrise parfaitement son sujet et démontre une grande expertise en stratégie d'entreprise. Sa méthodologie est à la fois structurée et engageante : elle embarque, motive et donne envie de s'investir pleinement. Ce qui m'a particulièrement marqué, c'est la fierté que l'on ressent à co-construire, à ses côtés, une stratégie claire, ambitieuse et réaliste, capable de propulser l'entreprise vers un nouveau cap."</p>
-                    <p class="testimonial-author">— Directrice des Opérations et des Finances PME</p>
+                    <p class="testimonial-author">— Directrice des Opérations et des Finances</p>
                 </div>
                 
                 <div class="testimonial-card">
                     <p>"Lorsque j'ai commencé mon accompagnement, je me sentais perdue, tiraillée dans mes choix de vie et j'avais même envie d'abandonner. Grâce à ce coaching, j'ai observé une nette amélioration dans ma vie. J'ai appris à mieux me connaître, à reconnaître mes limites, et cela a renforcé ma confiance en moi. J'ai beaucoup apprécié l'écoute attentive de Néné, et je me suis toujours sentie en confiance en discutant avec elle. Si je devais recommander cet accompagnement, je dirais d'y aller les yeux fermés, car elle sait trouver les mots justes pour guider chacun vers ses objectifs."</p>
-                    <p class="testimonial-author">— DG PME</p>
+                    <p class="testimonial-author">— Directrice Générale</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Ton accompagnement a été bouleversant. J'ai aimé la manière dont tu combines le stratégique et l'humain. Cela m'a permis de clarifier mes idées, de prendre du recul et d'aligner mes choix avec ce que je veux vraiment. J'ai beaucoup apprécié ton écoute, ta bienveillance et ta capacité à me challenger sans jugement."</p>
+                    <p class="testimonial-author">— Directrice des opérations</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Si je devais résumer cet accompagnement en un mot, je dirais révélateur. J'ai découvert des facettes de moi que je ne voyais pas. Ton écoute m'a permis de me reconnecter à l'essentiel et de mieux comprendre ce qui compte vraiment pour moi."</p>
+                    <p class="testimonial-author">— Chef de service</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Cet accompagnement a été utile. J'ai particulièrement apprécié ta grande écoute et la qualité de nos échanges. Tu m'as offert un espace sécurisant, et j'en ressors avec des clés concrètes qui m'aident à avancer."</p>
+                    <p class="testimonial-author">— Directrice Sécurité</p>
                 </div>
                 
                 <div class="testimonial-card">
                     <p>"Nous avons observé des évolutions de manière notable dans le fonctionnement de l'entreprise. Nous sentons une nouvelle dynamique chez les personnes clés."</p>
-                    <p class="testimonial-author">— Directrice des Opérations et des Finances PME</p>
+                    <p class="testimonial-author">— Directrice des Opérations et des Finances</p>
                 </div>
             </div>
         </div>
@@ -1330,8 +1426,8 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Quelle différence entre le Diagnostic et l'Accompagnement complet ?</h3>
-                    <p>Le diagnostic éclaire. L'accompagnement transforme.<br>Le premier ouvre la conscience, le second ancre le changement.</p>
+                    <h3>Quelle différence entre le Diagnostic et les Formations ?</h3>
+                    <p>Le diagnostic éclaire votre situation spécifique en tant que dirigeant et organisation.<br>Les formations développent les compétences de vos équipes managériales pour un leadership plus aligné.</p>
                 </div>
                 
                 <div class="faq-item">
